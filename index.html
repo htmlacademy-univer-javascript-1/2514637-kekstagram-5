@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="vendor/nouislider/nouislider.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Кекстаграм</title>
 </head>
@@ -31,11 +30,11 @@
       <section class="img-upload">
         <div class="img-upload__wrapper">
           <h2 class="img-upload__title  visually-hidden">Загрузка фотографии</h2>
-          <form class="img-upload__form" id="upload-select-image" autocomplete="off" action="https://29.javascript.htmlacademy.pro/kekstagram" method="post" enctype="multipart/form-data">
+          <form class="img-upload__form" id="upload-select-image" autocomplete="off">
 
             <!-- Изначальное состояние поля для загрузки изображения -->
             <fieldset class="img-upload__start">
-              <input type="file" id="upload-file" class="img-upload__input  visually-hidden" name="filename" required accept="image/jpeg, image/png">
+              <input type="file" id="upload-file" class="img-upload__input  visually-hidden" name="filename" required>
               <label for="upload-file" class="img-upload__label  img-upload__control">Загрузить</label>
             </fieldset>
 
@@ -117,10 +116,10 @@
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
                   <div class="img-upload__field-wrapper">
-                    <input type="text" class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
+                    <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
                   </div>
                   <div class="img-upload__field-wrapper">
-                    <textarea class="text__description" name="description" placeholder="Ваш комментарий..." maxlength="140"></textarea>
+                    <textarea class="text__description" name="description" placeholder="Ваш комментарий..."></textarea>
                   </div>
                 </fieldset>
 
@@ -155,8 +154,16 @@
           </div>
 
           <!-- Комментарии к изображению -->
-          <div class="social__comment-count"><span class="current-comments-count">5</span> из <span class="comments-count">125</span> комментариев</div>
+          <div class="social__comment-count">5 из <span class="comments-count">125</span> комментариев</div>
           <ul class="social__comments">
+            <li class="social__comment">
+              <img class="social__picture" src="img/avatar-4.svg" alt="Аватар комментатора фотографии" width="35" height="35">
+              <p class="social__text">Мега фото! Просто обалдеть. Как вам так удалось?</p>
+            </li>
+            <li class="social__comment">
+              <img class="social__picture" src="img/avatar-3.svg" alt="Аватар комментатора фотографии" width="35" height="35">
+               <p class="social__text">Да это фоташоп!!!!!!!!</p>
+            </li>
           </ul>
 
           <!-- Кнопка для загрузки новой порции комментариев -->
@@ -220,34 +227,5 @@
     </section>
   </template>
 
-  <!-- Комментарий к Большому изображению -->
-  <template id="bigPictureComment">
-    <li class="social__comment">
-      <img
-          class="social__picture"
-          src="{{аватар}}"
-          alt="{{имя комментатора}}"
-          width="35" height="35">
-      <p class="social__text">{{текст комментария}}</p>
-  </li>
-  </template>
-
-  <!-- Сообщение с ошибкой получения данных с сервера -->
-  <template id="download-error">
-    <section class="error download-error-section">
-      <div class="error__inner download-error">
-        <h2 class="error__title">Ошибка получения данных</h2>
-        <button type="button" class="error__button">Попробовать ещё раз</button>
-      </div>
-    </section>
-  </template>
-
-  <script src="vendor/pristine/pristine.min.js"></script>
-  <script src="vendor/nouislider/nouislider.js"></script>
-  <script src="js/main.js" type="module"></script>
-  <script src="js/uploadImage.js" type="module"></script>
-  <script src="js/miniatures.js" type="module"></script>
-  <script src="js/openBigPicture.js" type="module"></script>
-  <script src="js/validateUploadImage.js" type="module"></script>
 </body>
 </html>
